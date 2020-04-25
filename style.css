@@ -1,0 +1,353 @@
+@charset "utf-8";
+/---------------------------------
+テーマとしてWPに認識させるための記述↓
+---------------------------------/
+/*
+theme Name: TF-40
+Author: Shohei Ohtaki
+Description: 自作テーマ
+version： 1.0.0
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body {
+  height: 100px;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+}
+/* navbar全体に余白設定 */
+.navbar {
+  padding: .8rem;
+}
+
+
+.funny {
+  /* width: 100px !important; */
+  height: 40px;
+}
+
+.fa-accusoft {
+  width: 100px !important;
+  color: rgb(0, 247, 255);
+  height: 40px;
+}
+
+/* 各ナビ項目への右側余白設定 */
+.navbar-nav li {
+  padding-right: 10px; 
+}
+
+/* em remは微妙に違う… */
+.nav-link {
+  font-size: 1.1em !important;
+}
+
+/* 画像がはみ出さないようにする：元々の画像サイズにも注意しておく */
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+
+/* スライダー内の文字 
+画面が小さい場合、フォントを少し小さくした方がよくないか？*/
+.carousel-caption {
+
+  /* absoluteってなんだっけー＞親要素を基準にして場所指定
+  relativeは、本来いるはずの位置からの移動を意味する
+  ※今回は、親要素に対する位置から50％であれば真ん中にくるようにする
+  https://uxmilk.jp/63409 */
+  position: absolute;
+
+  /* topもわからん 
+  https://developer.mozilla.org/ja/docs/Web/CSS/top*/
+  top: 50%;
+
+  /* transformは結構使えそうなので、見とく */
+  transform: translateY(-50%);
+}
+
+.carousel-caption h1 {
+  font-size: 500%;
+  text-transform: uppercase;
+  
+  /* 上下、左右、明度、色 */
+  /* text-shadow: 15px 15px 15px #000; */
+  text-shadow: 1px 1px 1px #000;
+  /* test-shadowの文法確認しておけ 
+  多分、上右下左の順番だと思う*/
+}
+
+.carousel-caption h3 {
+  font-size: 200%;
+  font-weight: 100;
+  text-shadow: 1px 1px 1px #000;
+  /* text-shadow: 1px 1px 1px 10px:::が有効化できなかったので後でかくにんしとく */
+}
+
+.btn-primary {
+  background-color: #6648b1;
+  border: 1px solid #6648b1;
+}
+
+.btn-primary:hover {
+  background-color: #563d7c;
+  border: 1px solid #563d7c;
+}
+
+/* jumbotronの元ファイルをかくにんしておく */
+.jumbotron {
+  padding: 1rem;
+  border-radius: 0;
+}
+
+.padding {
+  padding-bottom: 2rem;
+}
+
+.welcome {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+/* hrは最初白色なので変更しないといけない */
+.welcome hr {
+  border-top: 2px solid #b4b4b4;
+  width: 95%;
+  margin-top:  .3rem;
+  margin-bottom: 1rem;
+}
+
+/* HTML5 */
+.fa-code {
+  color: #e54d26;
+}
+
+/* BOOTSTRAP */
+.fa-bold {
+  color: #563d7c;
+}
+
+/* CSS3 */
+.fa-css3 {
+  color: #2163af;
+}
+
+/* 大きさ、余白の共通部分 */
+.fa-code, .fa-bold, .fa-css3 {
+  font-size: 4em;
+  margin: 1rem;
+}
+
+/* クリックボタンを広げる */
+.fun {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.gif {
+  max-width: 100%;
+}
+
+
+.social a {
+  font-size: 4.5em;
+  padding: 3rem;
+}
+
+.fa-facebook {
+  color: #3b5998;
+}
+
+.fa-twitter {
+  color: #00aced;
+}
+
+.fa-google-plus-g {
+  color: #dd4b39;
+}
+
+.fa-instagram {
+  color: #517fa4;
+}
+
+.fa-youtube {
+  color: #bb0000;
+}
+
+.fa-facebook:hover, 
+.fa-twitter:hover, 
+.fa-google-plus-g:hover, 
+.fa-instagram:hover, 
+.fa-youtube:hover {
+  color: #d5d5d5;
+}
+
+footer {
+  background-color: #3f3f3f;
+  color: #d5d5d5;
+  padding-top: 2rem;
+}
+
+/* こんなクラスあったっけ */
+hr.light {
+  /* solidは実践で、破線とかもあった気がする */
+  border-top: 1px solid #d5d5d5;
+  width: 75%;
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+
+
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+  .social a {
+    /* 通常も4rem */
+    font-size: 4rem;
+    padding: 2rem;
+  }
+  }
+@media (max-width: 768px) {
+  .carousel-caption {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+  }
+  
+  .carousel-caption h1 {
+    font-size: 350%;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 140%;
+    font-weight: 400;
+    padding-bottom: .2rem;
+  }
+
+  .carousel-caption .btn {
+    font-size: 95%;
+    padding: 8px 14px;
+  }
+
+  .display-4 {
+    font-size: 200%;
+  }
+  /* 少しロゴを小さくする */
+  .social a {
+    font-size: 2.5em;
+    padding: 1.2rem;
+  }
+}
+
+
+
+
+@media (max-width: 576px) {
+  .carousel-caption {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+  }
+  
+  .carousel-caption h1 {
+    font-size: 250%;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 110%;
+  }
+
+  .carousel-caption .btn {
+    font-size: 90%;
+    padding: 4px 8px;
+  }
+
+  /* noneにしても表示されているけど・・・ */
+  .carousel-indicators {
+    display: none;
+  }
+}
+
+
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  /* スライドの速度 */
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+/*--- Fixed Background Image --*/
+figure {
+/* 親要素に対し */
+  position: relative;
+  width: 100%;
+/* backgroundのみ、高さが足りていないので修正 */
+  height: 400%;
+  margin: 0!important;
+}
+
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height:100%;
+}
+#fixed {
+  /* 画像本体 */
+  background-image: url('img/air.jpg');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+
+
+
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+
+
+
+
+
+
+
