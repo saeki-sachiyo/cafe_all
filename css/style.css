@@ -37,7 +37,7 @@ html, body {
 /* 画像がはみ出さないようにする：元々の画像サイズにも注意しておく */
 .carousel-inner img {
   width: 100%;
-  height: 100%;
+  height: 50vw;
 }
 
 /* スライダー内の文字 

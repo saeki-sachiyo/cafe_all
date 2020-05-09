@@ -3,10 +3,10 @@
 テーマとしてWPに認識させるための記述↓
 ---------------------------------/
 /*
-theme Name: TF-40
+theme Name: TF-1
 Author: Shohei Ohtaki
 Description: 自作テーマ
-version： 1.0.0
+version： 1.0.0  
 */
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
@@ -17,20 +17,30 @@ html, body {
   font-family: 'Poppins', sans-serif;
   color: #222;
 }
-/* navbar全体に余白設定 */
+
+/*共通*/
+h1,h2,h3{
+  font-family: cursive;
+}
+
+/*線*/
+hr {
+  border-top: 2px solid #b4b4b4;
+  width: 80%;
+  margin-top:  .3rem;
+  margin-bottom: 1rem;
+}
+
+span{
+  display:inline-block;
+}
+
+/* ナビバー  */
 .navbar {
   padding: .8rem;
 }
 
-
-.funny {
-  /* width: 100px !important; */
-  height: 40px;
-}
-
-.fa-accusoft {
-  width: 100px !important;
-  color: rgb(0, 247, 255);
+.icon {
   height: 40px;
 }
 
@@ -39,151 +49,203 @@ html, body {
   padding-right: 10px; 
 }
 
-/* em remは微妙に違う… */
 .nav-link {
   font-size: 1.1em !important;
 }
 
-/* 画像がはみ出さないようにする：元々の画像サイズにも注意しておく */
-.carousel-inner img {
-  width: 100%;
-  height: 100%;
+#home img{
+    width: 100%;
+    height: 50vw;
 }
 
-/* スライダー内の文字 
-画面が小さい場合、フォントを少し小さくした方がよくないか？*/
+/*Top画 文字*/
+
+/*タイトルアニメーション*/
+@keyframes typing {
+  0%{width:0}
+  100%{width: 100%}
+}
+
+
+.title {
+  margin: auto;
+  height: 3ch;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 11ch;
+  animation: typing 5s  infinite;
+}
+
+
 .carousel-caption {
-
-  /* absoluteってなんだっけー＞親要素を基準にして場所指定
-  relativeは、本来いるはずの位置からの移動を意味する
-  ※今回は、親要素に対する位置から50％であれば真ん中にくるようにする
-  https://uxmilk.jp/63409 */
   position: absolute;
-
-  /* topもわからん 
-  https://developer.mozilla.org/ja/docs/Web/CSS/top*/
-  top: 50%;
-
-  /* transformは結構使えそうなので、見とく */
-  transform: translateY(-50%);
+  top: 20%;
+  text-align: center;
 }
 
-.carousel-caption h1 {
+.carousel-caption h1{
   font-size: 500%;
   text-transform: uppercase;
-  
-  /* 上下、左右、明度、色 */
-  /* text-shadow: 15px 15px 15px #000; */
-  text-shadow: 1px 1px 1px #000;
-  /* test-shadowの文法確認しておけ 
-  多分、上右下左の順番だと思う*/
+  text-shadow: 3px 3px 3px #000;
+}
+
+.carousel-caption h2{
+  text-transform: uppercase;
+  text-shadow: 3px 3px 3px #000;
 }
 
 .carousel-caption h3 {
   font-size: 200%;
   font-weight: 100;
-  text-shadow: 1px 1px 1px #000;
-  /* text-shadow: 1px 1px 1px 10px:::が有効化できなかったので後でかくにんしとく */
+  text-shadow: 2px 2px 2px #000;
+}
+/*Top画 ボタン*/
+.con_btn{
+  border: 1px solid #ffab2e;
+}
+.con_btn:hover {
+  background-color: #ffab2e;
 }
 
-.btn-primary {
-  background-color: #6648b1;
-  border: 1px solid #6648b1;
+/*メッセージbox*/
+#meassagetitele{
+  position: relative;
+  z-index: 4;
 }
 
-.btn-primary:hover {
-  background-color: #563d7c;
-  border: 1px solid #563d7c;
+#message{
+  background-color: #ffffec;
+  box-shadow:10px 10px 4px #ffc062;
+  position: relative;;
+  top:-38px;
 }
 
-/* jumbotronの元ファイルをかくにんしておく */
-.jumbotron {
-  padding: 1rem;
-  border-radius: 0;
+/*「ほっ」の文字とアニメーション*/
+@keyframes swing{
+  0%{transform:translate(-5px,5px);}
+  50%{transform: translate(5px,-5px);}
+  100%{transform:translate(-5px,5px);}
+}
+.ho{
+  color: #ffab2e;
+  text-shadow:2px 2px 2px #3f3f3f;
+  animation: swing 3s infinite;
+  font-size: 140%;
+}
+/*施工実績*/
+
+/*カルーセルの矢印の色を変える*/
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  background-image: none;
+}
+.carousel-control-next-icon:after{
+  content: '>';
+  font-size: 55px;
+  color: black;
 }
 
-.padding {
-  padding-bottom: 2rem;
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: black;
 }
 
-.welcome {
-  width: 75%;
-  margin: 0 auto;
+/*説明文のスタイル*/
+.work_info{
+  font-size: 120%;
+  margin-top: 20px;
+}
+
+/*お悩み・イベント*/
+#Event, #Event2{
+  margin: 5% 5% 6%;
   padding-top: 2rem;
 }
 
-/* hrは最初白色なので変更しないといけない */
-.welcome hr {
-  border-top: 2px solid #b4b4b4;
-  width: 95%;
-  margin-top:  .3rem;
-  margin-bottom: 1rem;
+.Worries{
+  position: relative;
 }
 
-/* HTML5 */
-.fa-code {
-  color: #e54d26;
+/*写真の幅を変える*/
+.Worries_img img{
+  width: 70%;
+  height: auto;
 }
 
-/* BOOTSTRAP */
-.fa-bold {
-  color: #563d7c;
-}
-
-/* CSS3 */
-.fa-css3 {
-  color: #2163af;
-}
-
-/* 大きさ、余白の共通部分 */
-.fa-code, .fa-bold, .fa-css3 {
-  font-size: 4em;
-  margin: 1rem;
-}
-
-/* クリックボタンを広げる */
-.fun {
-  width: 100%;
-  margin-bottom: 2rem;
-}
-
-.gif {
-  max-width: 100%;
+/*hose型に切り取る*/
+.big_house1{
+  clip-path: polygon(51% 0, 100% 48%, 100% 100%, 0 100%, 0 50%);
 }
 
 
-.social a {
-  font-size: 4.5em;
-  padding: 3rem;
+/*「悩み」を右端に設定*/
+.Worries_info{
+  width: 65%;
+  background-color: #fffcd3;
+  box-shadow:3px 3px 3px #3f3f3f;
+  border-radius: 10px;
+  position: absolute;
+  top:40%;
+  left: 40%;
+  padding: 6% 3%;
+  font-size: 20px;
 }
 
-.fa-facebook {
-  color: #3b5998;
+/*チェックに色付け*/
+.Worries_info .fa-check-square{
+  color: #ffab2e;
 }
 
-.fa-twitter {
-  color: #00aced;
+/*イベント詳細ボタン*/
+.event_btn{
+  width: 120px;
+  color:white;
 }
 
-.fa-google-plus-g {
-  color: #dd4b39;
+.big_btn{
+  width: 300px;
+  height: 60px;
+  margin: 10px;
+  padding: auto;
+  border: 3px solid #3f3f3f;
+  border-radius: 8px;
+  color: #000;
+  font-size: 20px;
+  line-height: 50px;
+}
+.big_btn a{
+  color: #000;
+  position: relative;
 }
 
-.fa-instagram {
-  color: #517fa4;
+.big_btn:hover{
+  background-color: rgb(255, 249, 191);
+  opacity: 0.7;
+  color: #000;
 }
 
-.fa-youtube {
-  color: #bb0000;
+.fa-arrow-circle-right{
+  justify-content: left;
+  position: relative;
+  left: -40px;
 }
 
-.fa-facebook:hover, 
-.fa-twitter:hover, 
-.fa-google-plus-g:hover, 
-.fa-instagram:hover, 
-.fa-youtube:hover {
-  color: #d5d5d5;
+/*こだわり*/
+.comit{
+  margin-top: 70px;
 }
+
+.comit span{
+  color: #ffab2e;
+  font-size: 150%;
+  text-shadow: 2px 2px 2px #3f3f3f;
+}
+
 
 footer {
   background-color: #3f3f3f;
@@ -191,39 +253,33 @@ footer {
   padding-top: 2rem;
 }
 
-/* こんなクラスあったっけ */
-hr.light {
-  /* solidは実践で、破線とかもあった気がする */
-  border-top: 1px solid #d5d5d5;
-  width: 75%;
-  margin-top: .8rem;
-  margin-bottom: 1rem;
-}
-
-
-
-
-
-
-
-
 /*---Media Queries --*/
-@media (max-width: 992px) {
+@media (min-width: 700px) {
   .social a {
     /* 通常も4rem */
     font-size: 4rem;
     padding: 2rem;
   }
+}
+
+
+@media (max-width: 1000px) {
+
+  /*施工実績の説明文*/
+  .work_info{
+    font-size: 90%;
   }
+}
+
 @media (max-width: 768px) {
   .carousel-caption {
     position: absolute;
-    top: 45%;
+    top: 40%;
     transform: translateY(-50%);
   }
   
   .carousel-caption h1 {
-    font-size: 350%;
+    font-size: 300%;
   }
   
   .carousel-caption h3 {
@@ -240,11 +296,12 @@ hr.light {
   .display-4 {
     font-size: 200%;
   }
-  /* 少しロゴを小さくする */
-  .social a {
-    font-size: 2.5em;
-    padding: 1.2rem;
+
+  /*イベントボタン*/
+  .event_btn{
+    width: 200px;
   }
+
 }
 
 
@@ -253,12 +310,12 @@ hr.light {
 @media (max-width: 576px) {
   .carousel-caption {
     position: absolute;
-    top: 40%;
+    top: 30%;
     transform: translateY(-50%);
   }
   
   .carousel-caption h1 {
-    font-size: 250%;
+    font-size: 150%;
   }
   
   .carousel-caption h3 {
@@ -270,9 +327,41 @@ hr.light {
     padding: 4px 8px;
   }
 
-  /* noneにしても表示されているけど・・・ */
   .carousel-indicators {
     display: none;
+  }
+
+  /*メッセージ(about)*/
+  .about h2{
+    font-size:28px
+  }
+
+  .about h4{
+    font-size:22px
+  }
+
+  /*イベント*/
+  /*写真の幅を変える*/
+  .Worries_img img{
+    width: 90%;
+    height: auto;
+  }
+
+  .Worries_info{
+    width: 80%;
+    position: absolute;
+    top: 60%;
+    left: 15%;
+    font-size: 90%;
+    padding: 3% 2%;
+  }
+
+  .Worries_info2{
+    font-size: 120%;
+  }
+
+  #Event{
+    margin-bottom: 110px;
   }
 }
 
@@ -325,24 +414,6 @@ figure {
 
 
 
-
-
-/*
-Extra small (xs) devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap
-
-Small (sm) devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-Medium (md) devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-Large (lg) devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-Extra (xl) large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
-*/
 
 
 
