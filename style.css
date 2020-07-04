@@ -3,8 +3,8 @@
 テーマとしてWPに認識させるための記述↓
 ---------------------------------/
 /*
-theme Name: TF-1
-Author: Shohei Ohtaki
+theme Name: cafe All
+Author: yoshida sachiyo
 Description: 自作テーマ
 version： 1.0.0  
 */
@@ -23,402 +23,418 @@ h1,h2,h3{
   font-family: cursive;
 }
 
-/*線*/
-hr {
-  border-top: 2px solid #b4b4b4;
-  width: 80%;
-  margin-top:  .3rem;
-  margin-bottom: 1rem;
-}
-
-span{
-  display:inline-block;
-}
-
-/* ナビバー  */
-.navbar {
-  padding: .8rem;
-}
-
-.icon {
-  height: 40px;
-}
-
-/* 各ナビ項目への右側余白設定 */
-.navbar-nav li {
-  padding-right: 10px; 
-}
-
-.nav-link {
-  font-size: 1.1em !important;
-}
-
-#home img{
-    width: 100%;
-    height: 50vw;
-}
-
-/*Top画 文字*/
-
-/*タイトルアニメーション*/
-@keyframes typing {
-  0%{width:0}
-  100%{width: 100%}
-}
-
-
-.title {
-  margin: auto;
-  height: 3ch;
+.wrap {
   overflow: hidden;
-  white-space: nowrap;
-  width: 11ch;
-  animation: typing 5s  infinite;
 }
 
 
-.carousel-caption {
+/*ナビバー*/
+.inner {
+  margin: 0 auto;
+}
+.inner:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* header */
+#top-head {
+  top: -100px;
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  margin: 100px auto 0;
+  padding: 30px auto 0;
+  line-height: 1;
+  z-index: 2000;
+}
+
+#top-head a,
+#top-head {
+  color: rgb(22, 17, 17);
+  text-decoration: none;
+}
+#top-head .inner {
+  position: relative;
+}
+#top-head .logo {
+  margin-left: 5%;
+  float: left;
+  font-size: 36px;
+}
+
+#global-nav ul {
+  list-style: none;
   position: absolute;
-  top: 20%;
-  text-align: center;
+  right: 5%;
+  bottom: 0;
+  font-size: 20px;
+}
+#global-nav ul li {
+  float: left;
+}
+#global-nav ul li a {
+  padding: 0 30px;
 }
 
-.carousel-caption h1{
-  font-size: 500%;
-  text-transform: uppercase;
-  text-shadow: 3px 3px 3px #000;
+/* Fixed */
+#top-head.fixed {
+  margin-top: 0;
+  top: 0;
+  position: fixed;
+  padding-top: 10px;
+  height: 55px;
+  background: #fff;
+  background: rgba(255,255,255,.7);
+  transition: top 0.65s ease-in;
+  -webkit-transition: top 0.65s ease-in;
+  -moz-transition: top 0.65s ease-in;
+}
+#top-head.fixed .logo {
+  font-size: 24px;
+  color: #333;
+}
+#top-head.fixed #global-nav ul li a {
+  color: #333;
+  padding: 0 20px;
 }
 
-.carousel-caption h2{
-  text-transform: uppercase;
-  text-shadow: 3px 3px 3px #000;
+/* Toggle Button */
+#nav-toggle {
+  display: none;
+  position: absolute;
+  right: 25px;
+  top: 14px;
+  width: 34px;
+  height: 36px;
+  cursor: pointer;
+  z-index: 101;
+}
+#nav-toggle div {
+  position: relative;
+}
+#nav-toggle span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: #666;
+  left: 0;
+  -webkit-transition: .35s ease-in-out;
+  -moz-transition: .35s ease-in-out;
+  transition: .35s ease-in-out;
+}
+#nav-toggle span:nth-child(1) {
+  top: 0;
+}
+#nav-toggle span:nth-child(2) {
+  top: 11px;
+}
+#nav-toggle span:nth-child(3) {
+  top: 22px;
 }
 
-.carousel-caption h3 {
+/*サブタイトル非表示*/
+#global-nav .sub_title{
+  display: none;
+}
+
+/*-------------
+本体
+--------------*/
+/*コンテンツ共通*/
+.content1,.content2{
+  padding-top: 70px;
+  margin: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+.content img{
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px rgb(43, 43, 43);
+}
+
+.content img:hover, .news:hover ,.content5 .cont_last:hover{
+ transform:scale(0.9) ;
+ opacity: 0.6;
+}
+
+
+/*画像上の文字の配置*/
+.content{
+  position: relative;
+}
+
+.char{
+  position:absolute;
+  top: 5%;
+  left: 30px;
   font-size: 200%;
-  font-weight: 100;
-  text-shadow: 2px 2px 2px #000;
-}
-/*Top画 ボタン*/
-.con_btn{
-  border: 1px solid #ffab2e;
-}
-.con_btn:hover {
-  background-color: #ffab2e;
+  color: rgb(255, 251, 251);
+  text-shadow: 3px 3px 3px rgb(0, 0, 0);
+  font-family: cursive;
+  font-weight: bold;
 }
 
-/*メッセージbox*/
-#meassagetitele{
-  position: relative;
-  z-index: 4;
+/*動画*/
+.movie{
+  margin: auto;
 }
 
-#message{
-  background-color: #ffffec;
-  box-shadow:10px 10px 4px #ffc062;
-  position: relative;;
-  top:-38px;
+#player{
+  border-radius: 20px;
+  width: 100%;
+  margin: auto;
 }
 
-/*「ほっ」の文字とアニメーション*/
-@keyframes swing{
-  0%{transform:translate(-5px,5px);}
-  50%{transform: translate(5px,-5px);}
-  100%{transform:translate(-5px,5px);}
-}
-.ho{
-  color: #ffab2e;
-  text-shadow:2px 2px 2px #3f3f3f;
-  animation: swing 3s infinite;
-  font-size: 140%;
-}
-/*施工実績*/
-
-/*カルーセルの矢印の色を変える*/
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  height: 100px;
-  width: 100px;
-  outline: black;
-  background-size: 100%, 100%;
-  background-image: none;
-}
-.carousel-control-next-icon:after{
-  content: '>';
-  font-size: 55px;
-  color: black;
-}
-
-.carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 55px;
-  color: black;
-}
-
-/*説明文のスタイル*/
-.work_info{
-  font-size: 120%;
-  margin-top: 20px;
-}
-
-/*お悩み・イベント*/
-#Event, #Event2{
-  margin: 5% 5% 6%;
-  padding-top: 2rem;
-}
-
-.Worries{
-  position: relative;
-}
-
-/*写真の幅を変える*/
-.Worries_img img{
-  width: 70%;
+.content2 img{
+  width: 100%;
   height: auto;
 }
 
-/*hose型に切り取る*/
-.big_house1{
-  clip-path: polygon(51% 0, 100% 48%, 100% 100%, 0 100%, 0 50%);
+/*-----------------
+About
+-----------------*/
+.about{
+  color: rgb(43, 43, 43);
 }
 
-
-/*「悩み」を右端に設定*/
-.Worries_info{
-  width: 65%;
-  background-color: #fffcd3;
-  box-shadow:3px 3px 3px #3f3f3f;
-  border-radius: 10px;
+/*-----------------
+Reserve
+-----------------*/
+.content2{
+  position: relative;
+}
+.content2-1{
   position: absolute;
-  top:40%;
-  left: 40%;
-  padding: 6% 3%;
-  font-size: 20px;
+  top: 100px;
+}
+.content2-2{
+  position: absolute;
+  bottom: 0;
+  width: auto;
 }
 
-/*チェックに色付け*/
-.Worries_info .fa-check-square{
-  color: #ffab2e;
+.reserve{
+  display: flex;
+  vertical-align:bottom;
 }
 
-/*イベント詳細ボタン*/
-.event_btn{
-  width: 120px;
-  color:white;
+.reserve .pcimg{
+  display: block;
+}
+.reserve .spimg{
+  display: none;
 }
 
-.big_btn{
-  width: 300px;
-  height: 60px;
-  margin: 10px;
-  padding: auto;
-  border: 3px solid #3f3f3f;
-  border-radius: 8px;
-  color: #000;
-  font-size: 20px;
-  line-height: 50px;
-}
-.big_btn a{
-  color: #000;
-  position: relative;
+/*-----------------
+News
+-------------------*/
+.news{
+  background-color: rgb(136, 136, 136);
+  box-shadow: 3px 3px 3px #666;
+  padding: 3%;
+  border-radius: 20px;
 }
 
-.big_btn:hover{
-  background-color: rgb(255, 249, 191);
-  opacity: 0.7;
-  color: #000;
+.content3 a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
 }
 
-.fa-arrow-circle-right{
-  justify-content: left;
-  position: relative;
-  left: -40px;
+.content3 .news{
+  height: 113px;
 }
 
-/*こだわり*/
-.comit{
-  margin-top: 70px;
+/*-----------------
+お問い合わせ・こだわり
+-------------------*/
+.content5 .cont_last{
+  background-color: black;
+  font-size: 25px;
+  height: 110px;
+  border-radius: 20px;
 }
 
-.comit span{
-  color: #ffab2e;
-  font-size: 150%;
-  text-shadow: 2px 2px 2px #3f3f3f;
+.content5 .cont_last a{
+  text-decoration: none;
+  margin: 0;
+  color: rgb(255, 255, 255);
 }
 
-
-footer {
-  background-color: #3f3f3f;
-  color: #d5d5d5;
-  padding-top: 2rem;
+.content5 p{
+  line-height: 110px;
 }
 
-/*---Media Queries --*/
-@media (min-width: 700px) {
-  .social a {
-    /* 通常も4rem */
-    font-size: 4rem;
-    padding: 2rem;
+/*Nav*/
+@media screen and (max-width: 900px) {
+  #top-head,
+  .inner {
+      width: 100%;
+      padding: 0;
+  }
+  #top-head {
+      top: 0;
+      position: fixed;
+      margin-top: 0;
+  }
+  /* Fixed reset */
+  #top-head.fixed {
+      padding-top: 0;
+      background: transparent;
+  }
+  #mobile-head {
+      background: #fff;
+      width: 100%;
+      height: 56px;
+      z-index: 999;
+      position: relative;
+  }
+  #top-head.fixed .logo,
+  #top-head .logo {
+      position: absolute;
+      left: 13px;
+      top: 13px;
+      color: #333;
+      font-size: 26px;
+  }
+  #global-nav {
+      position: absolute;
+      /* 開いてないときは画面外に配置 */
+      top: -100vh;
+      background: rgb(255, 255, 255);
+      opacity: 0.95;
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+      padding: 10px 0;
+      -webkit-transition: .5s ease-in-out;
+      -moz-transition: .5s ease-in-out;
+      transition: .5s ease-in-out;
+  }
+  #global-nav ul {
+      padding-top: 100px;
+      padding-left: 0;
+      list-style: none;
+      position: static;
+      right: 0;
+      bottom: 0;
+      font-size: 25px;
+  }
+  #global-nav ul li {
+      float: none;
+      position: static;
+  }
+  #top-head #global-nav ul li a,
+  #top-head.fixed #global-nav ul li a {
+      width: 100%;
+      display: block;
+      color: rgb(7, 7, 7);
+      padding: 18px 0;
+  }
+  #nav-toggle {
+      display: block;
+  }
+  /* #nav-toggle 切り替えアニメーション */
+  .open #nav-toggle span:nth-child(1) {
+      top: 11px;
+      -webkit-transform: rotate(315deg);
+      -moz-transform: rotate(315deg);
+      transform: rotate(315deg);
+  }
+  .open #nav-toggle span:nth-child(2) {
+      width: 0;
+      left: 50%;
+  }
+  .open #nav-toggle span:nth-child(3) {
+      top: 11px;
+      -webkit-transform: rotate(-315deg);
+      -moz-transform: rotate(-315deg);
+      transform: rotate(-315deg);
+  }
+  /* #global-nav スライドアニメーション */
+  .open #global-nav {
+      /* #global-nav top + #mobile-head height */
+      transform: translateY(100vh);
+  }
+
+  /*サブタイトル*/
+  #global-nav .sub_title{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: rgb(92, 92, 92);
+    display: block;
+    line-height: 8px;
   }
 }
 
-
-@media (max-width: 1000px) {
-
-  /*施工実績の説明文*/
-  .work_info{
-    font-size: 90%;
+/*large*/
+@media screen and (max-width: 991px) {
+  .content2{
+    padding-top: 5px;
+  }
+  /*-----------------
+  Reserve
+  -----------------*/
+  .content2, .content2-1, .content2-2{
+    position: static;
   }
 }
 
-@media (max-width: 768px) {
-  .carousel-caption {
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-  }
-  
-  .carousel-caption h1 {
-    font-size: 300%;
-  }
-  
-  .carousel-caption h3 {
-    font-size: 140%;
-    font-weight: 400;
-    padding-bottom: .2rem;
-  }
-
-  .carousel-caption .btn {
-    font-size: 95%;
-    padding: 8px 14px;
-  }
-
-  .display-4 {
-    font-size: 200%;
-  }
-
-  /*イベントボタン*/
-  .event_btn{
-    width: 200px;
-  }
-
-}
-
-
-
-
-@media (max-width: 576px) {
-  .carousel-caption {
-    position: absolute;
-    top: 30%;
-    transform: translateY(-50%);
-  }
-  
-  .carousel-caption h1 {
+/*携帯サイズ*/
+@media screen and (max-width: 575px) {
+  /*-----------------
+   共通
+  -----------------*/
+  /*文字サイズを小さくする*/
+  .char{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform : translate(-50%,-50%);
     font-size: 150%;
-  }
-  
-  .carousel-caption h3 {
-    font-size: 110%;
+    text-align: center;
+    width: 90%;
   }
 
-  .carousel-caption .btn {
-    font-size: 90%;
-    padding: 4px 8px;
+  /*動画*/
+  #player{
+    border-radius: 20px;
+    width: auto;
+    height: 300%;
+    background-color: #fff;
   }
 
-  .carousel-indicators {
+  .content4 .char{
+    font-size: 100%;
+  }
+
+  .brand img{
+    width: 50%;
+  }
+  .about{
+    margin-left: 10%;
+  }
+
+  .reserve .pcimg{
     display: none;
   }
-
-  /*メッセージ(about)*/
-  .about h2{
-    font-size:28px
+  .reserve .spimg{
+    display: block;
   }
 
-  .about h4{
-    font-size:22px
+/*-----------------
+お問い合わせ・こだわり
+-------------------*/
+  .content5 .cont_last{
+    height: 80px;
   }
-
-  /*イベント*/
-  /*写真の幅を変える*/
-  .Worries_img img{
-    width: 90%;
-    height: auto;
-  }
-
-  .Worries_info{
-    width: 80%;
-    position: absolute;
-    top: 60%;
-    left: 15%;
-    font-size: 90%;
-    padding: 3% 2%;
-  }
-
-  .Worries_info2{
-    font-size: 120%;
-  }
-
-  #Event{
-    margin-bottom: 110px;
+  
+  .content5 p{
+    line-height: 80px;
   }
 }
-
-
-/*---Firefox Bug Fix --*/
-.carousel-item {
-  /* スライドの速度 */
-  transition: -webkit-transform 0.5s ease;
-  transition: transform 0.5s ease;
-  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
-  -webkit-backface-visibility: visible;
-  backface-visibility: visible;
-}
-/*--- Fixed Background Image --*/
-figure {
-/* 親要素に対し */
-  position: relative;
-  width: 100%;
-/* backgroundのみ、高さが足りていないので修正 */
-  height: 400%;
-  margin: 0!important;
-}
-
-.fixed-wrap {
-  clip: rect(0, auto, auto, 0);
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height:100%;
-}
-#fixed {
-  /* 画像本体 */
-  background-image: url('img/air.jpg');
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center center;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  will-change: transform;
-}
-/*--- Bootstrap Padding Fix --*/
-[class*="col-"] {
-    padding: 1rem;
-}
-
-
-
-
-
-
-
-
-
-
-
